@@ -7,4 +7,4 @@ Clone this repository to your local place, and open the file `home.html` with yo
 Then you can enjoy it!
 
 ## License
-This frogger game is Copyright © 2017 Yunhan Yang. The content of this repository is licensed under a [MIT](https://github.com/yangyunhan/Test-Code/blob/master/LICENSE)
+This frogger game is Copyright © 2017 Yunhan Yang. The content of this repository is licensed under a [MIT](https://github.com/yangyunhan/Structural-Function-Recognition-of-Academic-Texts/blob/master/LICENSE)
