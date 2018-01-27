@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge" />
+    <title>home</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/reset.css" type="text/css" rel="stylesheet">
+    <link href="css/home-style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script src="js/height-adapting.js" type="text/javascript"></script>
+    <!--<script src="js/toggleShow.js" type="text/javascript"></script>-->
+    <!--<script>
+        alert($(window).width());
+        var win_width = $(window).width();
+        if(win_width<=976){
+            $('.main-nav').css('width','162px');
+            $('.tab').css('width','814px');
+        }
+    </script>-->
+</head>
+<body>
+<header class="site-header">
+    <div class="logo">
+        <i class="fa fa-meetup fa-4x" aria-hidden="true"></i>
+    </div>
+    <div class="header-middle-area">
+        <a class="logo-link" href="/">The Structure Function Recognition of Academic Text</a>
+    </div>
+    <!--<div class="header-login">-->
+        <!--未登录状态-->
+        <!--<a class="logged" href="login.html"><p class="user-login">Login</p></a>
+        <!--登录-->
+        <!--<div class="user-logged">
+            <img src="img/user1.jpg">
+            <p class="user-name">Hi,yunhan</p>
+            <ul class="dropdown">
+                <li class="dropdown-item">
+                    <a href="/">后台管理</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="/">退出登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>-->
+</header>
+<div class="all-site-wrap row">
+    <nav id="main-nav" class="main-nav col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <ul>
+            <li class="home active"><a href="home.html">Home</a></li>
+            <li class="demo"><a href="demo.html">Demo</a></li>
+            <li class="data"><a href="data.html">Data</a></li>
+            <li class="contact"><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="col-md-10 col-sm-10 col-xs-10 col-lg-10 tab">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                <div class="page-header bootstrap-admin-content-title">
+                    <h1>Structure Function Recognition</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted bootstrap-admin-box-title">Details</div>
+                    </div>
+                    <div class="bootstrap-admin-panel-content">
+                        <ul>
+                            <li>What is Structure Function?</li>
+                            <li>How?</li>
+                            <li>Some Applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted bootstrap-admin-box-title">Source</div>
+                    </div>
+                    <div class="bootstrap-admin-panel-content">
+                        <ul>
+                            <li>
+                                <a href="/" target="_blank">Github Repository</a>
+                            </li>
+                            <li>
+                                <a href="/">Download (.zip package)</a>
+                            </li>
+                            <li>See online<a href="/">demos</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted bootstrap-admin-box-title">What is Structure Function?</div>
+                    </div>
+                    <div class="bootstrap-admin-panel-content">
+                        <h3>Structure Function</h3>
+                        <p>Five tags used to describe the structure of academic text and the function of sections.
+                        </p>
+                        <ul>
+                            <li>introduction</li>
+                            <li>related work</li>
+                            <li>method</li>
+                            <li>result</li>
+                            <li>conclusion</li>
+                        </ul>
+                        <p>We could tag sections' function with these five tags, and a unified structure could be more meaningful.</p>
+                        <p>Some applications: citation analysis with structure function; academic search with paper structure; even Mobile Reading!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted bootstrap-admin-box-title">How?</div>
+                    </div>
+                    <div class="bootstrap-admin-panel-content">
+                        <h3>Recognition Methods</h3>
+                        <p>We solve the recognition in three levels:</p>
+                        <ul>
+                            <li>
+                                <b>Section Header Based
+                                    <a class="action btn" href="/">demo »</a>
+                                </b>
+                            </li>
+                            <p>Sequence tagging</p>
+                            <p>The section headers in a literature are viewed as a sequence with hidden structure function tags.</p>
+                            <li>
+                                <h5>Section Content Based
+                                    <a class="action btn" href="/">demo » </a>
+                                </h5>
+                            </li>
+                            <p>Text Categorization</p>
+                            <p>Using the section content to improve the accuracy of header based method.</p>
+                            <li>
+                                <h5>Paragraph Based
+                                    <a class="action btn" href="/">demo » </a>
+                                </h5>
+                            </li>
+                            <p>Two subtasks:</p>
+                            <ul>
+                                <li>Paragraph position recognition</li>
+                                <p>Text Categorization</p>
+                                <p>Given a paragraph of a literature, to recognize which structure function it belong to.</p>
+                                <li>Section function recognition</li>
+                                <p>Majority Voting</p>
+                                <p>Recognize the function of section based on results of paragraph position recognition with majority voting.</p>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted bootstrap-admin-box-title">Applications</div>
+                    </div>
+                    <div class="bootstrap-admin-panel-content">
+                        <h3>Some Applications</h3>
+                        <p>There are some applications of Structure Function.</p>
+                        <ul>
+                            <li>Academic Search!</li><a href="/"></a>
+                            <li>Citation Shift!</li>
+                            <li>Citation Analysis!</li>
+                            <li>Text UnserStanding!</li>
+                            <li>Mobile Reading!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="navbar-footer">
+    <div class="row">
+        <!--<footer role="contentinfo" class="footer-content">-->
+        <div class="footer-section-1 col-md-1 col-sm-1 col-xs-1 col-lg-1">
+            <img class="logo" src="img/陆门实验室logo_副本.png" alt="logo of laboratory">
+        </div>
+        <div class="footer-section-2 col-md-8 col-sm-8 col-xs-8 col-lg-8">
+            <a href="/">Data</a>
+            <a href="/">About</a>
+            <a href="/">Home</a>
+            <a href="/">Github</a>
+            <a href="/">Contact</a>
+            <a href="http://ir.whu.edu.cn">Irlab</a>
+        </div>
+        <div class="footer-section-3 col-md-3 col-sm-3 col-xs-3 col-lg-3">
+            <p class="laboratory">©copyright 2017&nbsp;&nbsp;&nbsp;INFORMATION RETRIEVAL AND KNOWLEDGE MINING LABORATORY</p>
+        </div>
+        <!--</footer>-->
+    </div>
+</footer>
+</body>
+</html>
