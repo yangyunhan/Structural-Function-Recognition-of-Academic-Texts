@@ -1,0 +1,33 @@
+.displayInlineBlock(){
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.borderRadius(@size){
+  -webkit-border-radius: @size;
+  -moz-border-radius: @size;
+  border-radius: @size;
+}
+
+.transform(@transform){
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+.transition(@transition){
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.ir-cols(@cols,@divider:10){
+  .displayInlineBlock();
+  width: 100% * @cols / @divider;
+  vertical-align: top;
+}

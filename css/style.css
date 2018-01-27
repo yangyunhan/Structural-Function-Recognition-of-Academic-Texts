@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title-content{
+    height: 150px;
+}
+.author-list{
+    text-decoration: none;
+}
+.author-list li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.date-doi{
+    text-decoration: none;
+}
+.doi-list{
+    text-decoration: none;
+}
+.doi-list li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.paper-wrapper{
+    position: relative;
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.paper{
+    position: relative;
+    padding-left: 200px;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.function-container{
+    position: relative;
+    margin-left: 10px;
+}
+.function-list{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 180px;
+}
+.function-item{
+    padding-left: 10px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.function-item:hover{
+    border-left: 1px solid #428bca;
+}
+.function-list li{
+    margin: 0 0 5px 0;
+}
+.function-active{
+    font-weight: 600;
+    border-left: 2px solid #2a6496;
+    color: #428bca;
+}

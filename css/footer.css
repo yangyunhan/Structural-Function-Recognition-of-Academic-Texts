@@ -1,0 +1,48 @@
+.row{
+    margin-right: 0!important;
+}
+.footer-section-1{
+    background-color: #eeeeee;/*#FFFFFF*/
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e8baa5' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    text-align: center;
+}
+.footer-section-2{
+    background-color: #D5D5D5;/*#363636*/
+    padding: 2.5rem 10rem 1rem 14rem;
+    font-size: 2.2rem;
+}
+.footer-section-2 a{
+    color: #333;
+    font-weight: 500;
+    display: inline-block;
+    width: 32%;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+.footer-section-2 a:hover{font-weight: 600;}
+.footer-section-3{
+    background-color: #F8F8F8;
+    overflow: hidden;
+    height: 131px;
+}
+.footer-label{color: #ff9800;}
+.footer-section-1 img{
+    height: 78px;
+    width: 60px;
+}
+.footer-section-1 .logo{
+    display: inline-block;
+    margin-top: 2.5rem;
+    margin-bottom: 2.8rem;
+}
+.navbar-footer{
+    border-bottom: 5px solid #ff9800;
+    height: 136px;
+}
+.footer-content{height: 100%;}
+.laboratory{
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    margin: 2rem 3.4rem;
+}

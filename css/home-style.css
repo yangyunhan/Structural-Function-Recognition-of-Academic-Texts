@@ -1,0 +1,34 @@
+@import "site-header.css";
+@import "left-nav.css";
+@import "footer.css";
+@import "font-awesome.min.css";
+.page-header{
+    font-size: 30px;
+    color: whitesmoke;
+    border-bottom: none;
+    padding-top: 30px;
+}
+.row{
+    font-size: 16px;
+}
+.bootstrap-admin-panel-content{
+    padding: 15px 30px;
+}
+.bootstrap-admin-panel-content ul{
+    list-style: disc;
+    padding: 10px 30px;
+}
+.bootstrap-admin-panel-content>ul>ul{
+    list-style: circle;
+}
+.bootstrap-admin-panel-content h3{
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.bootstrap-admin-panel-content p{
+    margin-bottom: 10px;
+}
+.navbar-footer{
+    margin-top: 0;
+}

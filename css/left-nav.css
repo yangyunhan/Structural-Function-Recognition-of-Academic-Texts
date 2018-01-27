@@ -1,0 +1,46 @@
+.all-site-wrap{background-color: #3c3c3c;}
+.tab{padding: 20px 80px;}
+nav{display: block;}
+.main-nav{
+    text-align: center;
+    position: relative;
+    z-index: 30;
+    background-color: #111;
+    padding: 4.5rem 0 4.5rem 0;
+    height: inherit;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav ul li{position: relative;}
+.main-nav ul li.home,.demo,.data{
+    background: #eee;
+    color: black;
+    margin-bottom: 18px;
+}
+.contact{
+    background: #eee;
+    color: black;
+}
+ul>.active{
+    background: #ff9800 !important;
+    color: white !important;
+}
+.main-nav ul li a{
+    font-weight: 500;
+    font-size: 2.5rem;
+    letter-spacing: 0.3rem;
+    color: black;
+    padding: 1.8rem 0.6rem;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+.main-nav ul li a span{
+    display: block;
+    transform: translateX(-200px);
+    -webkit-transform: translateX(-200px);
+    transition: 0.1s;
+}

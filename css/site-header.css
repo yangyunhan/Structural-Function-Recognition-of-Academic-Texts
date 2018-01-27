@@ -1,0 +1,119 @@
+html{
+    font-family: "Whitney SSm A","Whitney SSm B","Lato","Lucida Grande","Lucida Sans Unicode",Tahoma, SansSerif,"sans-serif";
+    font-weight: 400;
+    line-height: 1.5;
+}
+body{min-width: 976px;}
+a{text-decoration: none;}
+a:link{text-decoration: none;}
+.site-header{
+    position: relative;
+    border-bottom: 5px solid #ff9800;
+    align-items: center;
+    /*min-width: 1140px;*/
+    height: 80px;
+    padding-top: 15px;
+}
+.logo{
+    width: 16%;margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.logo .fa{
+    vertical-align: middle;
+    color: #ccc;
+}
+.logo a{text-decoration: none;}
+.header-middle-area{
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+}
+.header-middle-area a{
+    color: #222222;
+    font: 230% riffic-bold-webfont;
+    font-weight: bolder;
+    vertical-align: middle;
+}
+/*登录样式*/
+.header-login{
+    display: inline-block;
+    float: right;
+    background-color: #ff9800;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    vertical-align: middle;
+    padding: 20px 35px;
+    margin-top: -15px;
+}
+.header-login:hover{
+    background-color: #000057;
+    color: whitesmoke;
+}
+.user-login{
+    color: whitesmoke;
+    position: relative;
+}
+.user-logged{position: relative;}
+.user-logged>img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.user-name{
+    display: inline;
+    font-size: 18px;
+}
+.dropdown a{font-size: 16px;}
+.logged{display: none;}
+.dropdown{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 60px;
+    right: -35px;
+    width: 198px;
+    padding: 3px 6px;
+    background-color: #fff;
+    border-radius: 1px;
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,0.2);
+}
+.show{
+    visibility: visible;
+    opacity: 1;
+}
+li.dropdown-item:hover {
+    background-color: #ff9800;
+    color: white;
+}
+@font-face {
+    font-family: LazyHand-Regular;
+    src: url("../fonts/LazyHand-Regular.otf");
+    src: url("../fonts/LazyHand-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: acherus_grotesque_-_regular;
+    src: url("../fonts/acherus_grotesque_-_regular-webfont.woff");
+    src: url("../fonts/acherus_grotesque_-_regular-webfont.woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: riffic-bold-webfont;
+    src: url("../fonts/riffic-bold-webfont.woff");
+    src: url("../fonts/riffic-bold-webfont.woff2");
+}
+@media screen and(max-width: 976px) {
+    .main-nav{
+        width: 162px;
+    }
+    .tab{
+        width: 814px;
+    }
+
+}

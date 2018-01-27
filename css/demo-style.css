@@ -1,0 +1,69 @@
+@import "site-header.css";
+@import "left-nav.css";
+@import "footer.css";
+@import "buttons.css";
+@import "font-awesome.min.css";
+.tab{padding: 20px 80px;}
+.promote_text{margin-top: 20px;}
+.tab_menu{
+    clear: both;
+    margin-top: 30px;
+}
+.tab_menu li{
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    list-style: none;
+    margin-right: 10px;
+    background: #F1F1F1;
+    border: 4px solid #898989;
+    border-bottom: none;
+    border-radius: 2px;
+    margin-bottom: -4px;
+    line-height: 28px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.tab_menu li.hover{background: #DFDFDF}
+.tab_menu li.selected{color: #03A9F4;background: white}/*#302F2F/#FFF*/
+.tab_box{
+    clear: both;
+    border: 4px solid #898989;
+    border-radius: 2px;
+    width: 95%;
+    height: 200px;
+}
+.hide{display: none;}
+.promote_text{
+    color: whitesmoke;
+    font: 15px LazyHand-Regular;
+}
+.promote_text h1{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.tab_box div{
+    background-color: whitesmoke;
+}
+.tab_menu li p{font-weight: 900;}
+.tab_menu p{font-size: 14px;}
+.input_data{height: 300px;}
+.form-control{
+    width: 100%;
+    font-size: 16px;
+    border-radius: 2px;
+}
+textarea.form-control{height: 100%;}
+.but-style{
+    margin-top: 15px !important;
+    float: right;
+    margin-right: 5% !important;
+    border-radius: 2px;
+}
+.tab_result{
+    width: 95%;
+    margin-top: 70px;
+    border: 4px solid #898989;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
