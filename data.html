@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/reset.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="css/data-style.css" type="text/css">
+    <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="js/height-adapting.js" type="text/javascript"></script>
+    <script src="js/select-display.js" type="text/javascript"></script>
+    <script src="js/retrieval.js" type="text/javascript"></script>
+    <script src="js/page.js" type="text/javascript"></script>
+    <script src="js/template.js" type="text/javascript"></script>
+    <script src="js/handlebars-1.0.0.beta.6.js" type="text/javascript"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="logo">
+        <!--<a href="http://ir.whu.edu.cn/">
+            <img src="img/logo.jpg" alt="irlab"/>
+        </a>-->
+        <i class="fa fa-meetup fa-4x" aria-hidden="true"></i>
+    </div>
+    <div class="header-middle-area">
+        <a class="logo-link" href="/">The Structure Function Recognition of Academic Text</a>
+    </div>
+    <!--<div class="header-login">
+        <a href="login.html"><p class="user-login">Login</p></a>
+    </div>-->
+</header>
+<div class="all-site-wrap row">
+    <nav id="main-nav" class="main-nav col-md-2 col-xs-2 col-lg-2 col-sm-2">
+        <ul>
+            <li class="home"><a href="home.html">Home</a></li>
+            <li class="demo"><a href="demo.html">Demo</a></li>
+            <li class="data active"><a href="data.html">Data</a></li>
+            <li class="contact"><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="col-md-10 col-sm-10 col-xs-10 col-lg-10 tab">
+        <form id="searchControlBarForm" name="searchControlBarForm" action="" method="get">
+            <div class="search-results-controls">
+                <div class="search-results-controls-first-row">
+                    <fieldset class="search-field">
+                        <input id="controlBarSearch" pattern=".{1,}" name="search" value="information retrieval" type="text">
+                        <button id="searchFieldButton" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+        <form id="searchResultsForm" name="searchResultsForm" action="" method="get">
+            <div class="results-number">
+                    <span id="results-num" style="display: none">159610</span> results for "&nbsp;<strong id="searchTerm"></strong>&nbsp;"
+                </div>
+            <div class="results-display">
+                <span>Show By:</span>
+                <div class="search-results-select">
+                    <label for="display-order"><i class="fa fa-caret-down down"></i>
+                        <select id="display-order" name="display-order">
+                                <option class="option" value="TITLE" selected>Title</option>
+                                <option class="option" value="TITLE_ABSTRACT">Title Abstract</option>
+                                <option class="option" value="TITLE_INTRODUCTION">Title Introduction</option>
+                                <option class="option" value="TITLE_METHODOLOGY">Title Methodology</option>
+                                <option class="option" value="TITLE_RESULTS_AND_DISCUSSION">Title Result and Disscussion</option>
+                                <option class="option" value="TITLE_CONCLUSION">Title Conclusion</option>
+                            </select>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="clear"></div>
+        <div id="search-loading" style="display: none">
+            <div class="spinner" style="position: absolute; width: 0;z-index: 200000000;left: 50%;top:50%;" role="progressbar">
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-0-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(0deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-1-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(30deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-2-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(60deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-3-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(90deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-4-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(120deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-5-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(150deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-6-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(180deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-7-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(210deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-8-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(240deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-9-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(270deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-10-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(300deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+                <div style="position: absolute; top: -2px; opacity: 0.25; animation: 1s linear 0s normal none infinite running opacity-100-25-11-12;">
+                    <div style="position: absolute; width: 12px; height: 5px; background: rgb(0, 0, 0) none repeat scroll 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0; transform: rotate(330deg) translate(10px, 0px); border-radius: 2px;"></div>
+                </div>
+            </div>
+        </div>
+        <article id="search-results" class="searchResults" style="display: block">
+            <dl id="searchResultsList" class="search-results-list">
+                <!--<dt class="search-results-title" data-doi="">
+                    <a href="paper1.html">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-0">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-0-type">Essay</span>|
+                        <span id="article-results-0-date">published 21 Apr 2006</span>
+                        <span id="article-results-0-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                    <p class="TITLE_ABSTRACT" style="display: none">
+                        <span>Abstract:</span>
+                        This paper proposes entitymetrics to measure the impact of knowledge units.
+                        Entitymetrics highlight the importance of entities embedded in scientific literature
+                        for further knowledge discovery. In this paper, we use Metformin, a drug for diabetes,
+                        as an example to form an entity-entity citation network based on literature related
+                        to Metformin. We then calculate the network features and compare the centrality ranks
+                        of biological entities with results from Comparative Toxicogenomics Database (CTD).
+                        The comparison demonstrates the usefulness of entitymetrics to detect most of the
+                        outstanding interactions manually curated in CTD.
+                    </p>
+                    <p class="TITLE_INTRODUCTION" style="display: none">
+                        <span>Introduction:</span>
+                        Currently, knowledge is being amassed rapidly; however, most of it is being encoded
+                        as strings in unstructured scientific literature. Extraction of this knowledge
+                        presently places a huge burden on already overloaded researchers, as they must
+                        manually dig out the embedded knowledge by reading tons of articles. This knowledge
+                        consists of many connected individual knowledge units encapsulated as entities in
+                        scientific papers. These entities could be authors, references, journals, and
+                        keywords that are commonly studied in scholarly evaluation, or they could be datasets,
+                        key methods, genes, drugs, and diseases that have not yet been widely explored in
+                        bibliometrics. Effective knowledge transfer depends on efficient knowledge
+                        accumulation. If these entities were decoded/annotated using a standard format
+                        (e.g. XML tags or RDF triples) and following shared semantics (e.g., domain ontologies,
+                        or controlled vocabularies), then connecting the entity dots would be as easy as
+                        flipping a switch. A knowledge graph could then be formed/accumulated automatically
+                        based on existing articles, and newly published articles, to lead potentially to
+                        successful knowledge discovery [1].
+                    </p>
+                    <p class="TITLE_METHODOLOGY" style="display: none">
+                        <span>Methodology:</span>
+                        Metformin (N",N"-dimethylbiguanide) is often referred to as a magic drug.
+                        Originally, the drug was developed to treat Type II diabetes, however now, it is
+                        also being considered to treat and prevent cancer, obesity, depression, and aging
+                        [16]. Endocrinologists, cardiologists, oncologists, and aging specialists have
+                        generated waves of interest by attempting to use anti-diabetic biguanides to control
+                        body weight and tumor growth [48]. Metformin is the only anti-diabetic drug, which
+                        can prevent the cardiovascular complications of diabetes and remains as one, of the
+                        only two, oral anti-diabetics on the World Health Organization Model List of
+                        Essential Medicines [49]. Obesity and cancer have interrelationships with aging
+                        [50]. Metformin is able moderately to reduce body weight for obese diabetics because
+                        it can reduce insulin resistance and hyperinsulinemia [51]. A recent study found that
+                        children and adolescents are more responsive to metformin-induced weight loss
+                        compared to adults [52]. Metformin (N",N"-dimethylbiguanide) is often referred
+                        to as a magic drug. Originally, the drug was developed to treat Type II diabetes,
+                        however now, it is also being considered to treat and prevent cancer, obesity,
+                        depression, and aging [16]. Endocrinologists, cardiologists, oncologists, and aging
+                        specialists have generated waves of interest by attempting to use anti-diabetic
+                        biguanides to control body weight and tumor growth [48]. Metformin is the only
+                        anti-diabetic drug, which can prevent the cardiovascular complications of diabetes
+                        and remains as one, of the only two, oral anti-diabetics on the World Health
+                        Organization Model List of Essential Medicines [49]. Obesity and cancer have
+                        interrelationships with aging [50]. Metformin is able moderately to reduce body
+                        weight for obese diabetics because it can reduce insulin resistance and
+                        hyperinsulinemia [51]. A recent study found that children and adolescents are more
+                        responsive to metformin-induced weight loss compared to adults [52].
+                    </p>
+                    <p class="TITLE_RESULTS_AND_DISCUSSION" style="display: none">
+                        <span>Results:</span>
+                        In total, the entity-entity citation network based on Metformin information
+                        contains 7,055 entities and 264,345 links, among which 1,561 are loops (i.e.
+                        self-citations). In total, the entity-entity citation network based on Metformin
+                        information contains 7,055 entities and 264,345 links, among which 1,561 are loops
+                        (i.e. self-citations). In total, the entity-entity citation network based on
+                        Metformin information contains 7,055 entities and 264,345 links, among which
+                        1,561 are loops (i.e. self-citations).
+                    </p>
+                    <p class="TITLE_CONCLUSION" style="display: none">
+                        <span>Conclusion:</span>
+                        This paper proposes entitymetrics to measure the impact of knowledge units at
+                        different levels. It highlights the importance of entities embedded in scientific
+                        literature for further knowledge discovery. Compared with the related work,
+                        entitymetrics advances the state of the art by taking knowledge entity as the
+                        research unit to move bibliometrics to discovery knowledge.
+                    </p>
+                </dd>-->
+                <!--<dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-1">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-1-type">Essay</span>|
+                        <span id="article-results-1-date">published 21 Apr 2006</span>
+                        <span id="article-results-1-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-2">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-2-type">Essay</span>|
+                        <span id="article-results-2-date">published 21 Apr 2006</span>
+                        <span id="article-results-2-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-3">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-3-type">Essay</span>|
+                        <span id="article-results-3-date">published 21 Apr 2006</span>
+                        <span id="article-results-3-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-4">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-4-type">Essay</span>|
+                        <span id="article-results-4-date">published 21 Apr 2006</span>
+                        <span id="article-results-4-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-5">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-5-type">Essay</span>|
+                        <span id="article-results-5-date">published 21 Apr 2006</span>
+                        <span id="article-results-5-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-6">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-6-type">Essay</span>|
+                        <span id="article-results-6-date">published 21 Apr 2006</span>
+                        <span id="article-results-6-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-7">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-7-type">Essay</span>|
+                        <span id="article-results-7-date">published 21 Apr 2006</span>
+                        <span id="article-results-7-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-8">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-8-type">Essay</span>|
+                        <span id="article-results-8-date">published 21 Apr 2006</span>
+                        <span id="article-results-8-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>
+
+                <dt class="search-results-title" data-doi="">
+                    <a href="/">Principles for Strengthening the Integrity of Clinical Research</a>
+                </dt>
+                <dd id="article-result-9">
+                    <p class="search-results-authors">David Korn, Susan Ehringhaus</p>
+                    <p>
+                        <span id="article-results-9-type">Essay</span>|
+                        <span id="article-results-9-date">published 21 Apr 2006</span>
+                        <span id="article-results-9-journal-name">PLOS ONE</span>
+                    </p>
+                    <p class="search-results-doi">
+                        <a href="/">https://doi.org/10.1371/journal.pctr.0010001</a>
+                    </p>
+                    <div class="search-results-alm-container" data-doi="" data-index="0">
+                        <p class="search-results-alm" data-doi="">
+                            <a href="/">View: 16116</a> •
+                            <a href="/">Citation: 0</a> •
+                            <a href="/">Saves: 22</a> •
+                            Shaves: 0
+                        </p>
+                    </div>
+                </dd>-->
+            </dl>
+            <div>
+                <ul id="page2" class="nav-pagination pagination">
+                    <!--<span id="prevPageLink" class="previous-page switch disabled" href="/">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                        <span class="icon-text">Previous Page</span>
+                    </span>
+                    <a class="number seq active text-color" data-page="1">1</a>
+                    <a class="number seq text-color" data-page="2">2</a>
+                    <a class="number seq text-color" data-page="3">3</a>
+                    <a class="number seq text-color" data-page="4">4</a>
+                    <a class="number seq text-color" data-page="5">5</a>
+                    <span class="skip">...</span>
+                    <a class="number seq text-color page_sum" data-page="10645">10645</a>
+                    <a id="nextPageLink" class="next-page switch" href="/">
+                        <i class="fa fa-caret-right"></i>
+                        <span class="icon-text">Next Page</span>
+                    </a>-->
+                </ul>
+                <!--<div class="pageJump">
+                    <span>Jump to</span>
+                    <input type="text"/>
+                    <span>Page</span>
+                    <button type="button" class="button">Go!</button>
+                </div>-->
+            </div>
+        </article>
+    </div>
+</div>
+<script id="paper-template" type="text/x-handlebars-template">
+    {{#each paper}}
+    <dt class="search-results-title" data-index="{{paperIndex}}" data-length="{{paperLength}}">
+        <a href="paper1.html">{{paperName}}</a>
+    </dt>
+    <dd>
+        <p class="search-results-authors">{{paperAuthor}}</p>
+        <p>
+            <span>{{paperType}}</span>|
+            <span>published {{paperDate}}</span>|
+            <span>{{paperJournal}}</span>
+        </p>
+        <p><a href="/">{{paperDoi}}</a></p>
+        <div>
+            <p>
+                <a href="/">View: {{paperView}}</a> •
+                <a href="/">Citation: {{paperCitation}}</a> •
+                <a href="/">Download: {{paperDownload}}</a>
+            </p>
+        </div>
+        <p class="TITLE_ABSTRACT" style="display:none">
+            <span>Abstract:</span>
+            {{paperAbstract}}
+        </p>
+        <p class="TITLE_INTRODUCTION" style="display:none">
+            <span>Introduction:</span>
+            {{paperIntroduction}}
+        </p>
+        <p class="TITLE_METHODOLOGY" style="display:none">
+            <span>Methodology:</span>
+            {{paperMethodology}}
+        </p>
+        <p class="TITLE_RESULTS_AND_DISCUSSION" style="display:none">
+            <span>Results and Discussion:</span>
+            {{paperResDis}}
+        </p>
+        <p class="TITLE_CONCLUSION" style="display:none">
+            <span>Conclusion:</span>
+            {{paperConclusion}}
+        </p>
+    </dd>
+    {{/each}}
+</script>
+<footer class="navbar-footer">
+    <div class="row">
+        <div class="footer-section-1 col-md-1 col-xs-1 col-sm-1 col-lg-1">
+            <img class="logo" src="img/陆门实验室logo_副本.png" alt="logo of laboratory">
+        </div>
+        <div class="footer-section-2 col-md-8 col-xs-8 col-sm-8 col-lg-8">
+            <a href="/">Data</a>
+            <a href="/">About</a>
+            <a href="/">Home</a>
+            <a href="/">Github</a>
+            <a href="/">Contact</a>
+            <a href="http://ir.whu.edu.cn">Irlab</a>
+        </div>
+        <div class="footer-section-3 col-md-3 col-xs-3 col-sm-3 col-lg-3">
+            <p class="laboratory">©copyright 2017&nbsp;&nbsp;&nbsp;INFORMATION RETRIEVAL AND KNOWLEDGE MINING LABORATORY</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
