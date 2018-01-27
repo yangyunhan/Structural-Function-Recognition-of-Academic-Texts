@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/reset.css" type="text/css" rel="stylesheet">
+    <link href="css/demo-style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="js/content-selection.js" type="text/javascript"></script>
+    <script src="js/height-adapting.js" type="text/javascript"></script>
+    <script src="js/demo.js" type="text/javascript"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <i class="fa fa-meetup fa-4x" aria-hidden="true"></i>
+        </div>
+        <div class="header-middle-area">
+            <a class="logo-link" href="/">The Structure Function Recognition of Academic Text</a>
+        </div>
+        <!--<div class="header-login">
+            <a href="login.html"><p class="user-login">Login</p></a>
+        </div>-->
+    </header>
+    <div class="all-site-wrap row">
+        <nav id="main-nav" class="main-nav col-md-2 col-xs-2 col-sm-2 col-lg-2">
+            <ul>
+                <li class="home"><a href="home.html">Home</a></li>
+                <li class="demo active"><a href="demo.html">Demo</a></li>
+                <li class="data"><a href="data.html">Data</a></li>
+                <li class="contact"><a href="/">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="col-md-10 col-sm-10 col-xs-10 col-lg-10 tab">
+            <div class="promote_text">
+                <h1>Explanation</h1>
+                <p>在上面的文本输入框中输入提示样式的文字或段落，第一个标签对应第一个方法
+                    第二个标签对应。。。第三个标签对应。。。
+                    右边的文本框中显示的是不同标签对应的结果
+                    在左边的文本输入框中输入提示样式的文字或段落，第一个标签对应。。。
+                    第二个标签对应。。。第三个标签对应。。。
+                    右边的文本框中显示的是不同标签对应的结果
+                    在左边的文本输入框中输入提示样式的文字或段落，第一个标签对应。。。
+                    第二个标签对应。。。第三个标签对应。。。
+                    右边的文本框中显示的是不同标签对应的结果
+                </p>
+            </div>
+            <div class="tab_menu">
+                <ul>
+                    <li class="selected"><p>Section Header Based Recognize</p></li>
+                    <li><p>Section Content Based Recognize</p></li>
+                    <li><p>Paragraph Based Recognize</p></li>
+                </ul>
+            </div><br>
+            <div class="tab_box">
+                <textarea id="input_value1" class="input_data form-control" placeholder="please input a section header..."></textarea>
+                <textarea id="input_value2" class="input_data form-control hide" placeholder="please input a section content..."></textarea>
+                <textarea id="input_value3" class="input_data form-control hide" placeholder="please input a paragraph..."></textarea>
+            </div>
+            <div class="tab_button">
+                <button id="btn-search1" class="button button-primary but-style">Analyse</button>
+                <button id="btn-search2" class="button button-primary but-style hide">Analyse</button>
+                <button id="btn-search3" class="button button-primary but-style hide">Analyse</button>
+            </div>
+            <div class="tab_result">
+                <textarea id="RecResult" class="form-control" placeholder="result"></textarea>
+            </div>
+        </div>
+    </div>
+    <footer class="navbar-footer">
+        <div class="row">
+            <!--<footer role="contentinfo" class="footer-content">-->
+                <div class="footer-section-1 col-md-1 col-xs-1 col-sm-1 col-lg-1">
+                    <img class="logo" src="img/陆门实验室logo_副本.png" alt="logo of laboratory">
+                </div>
+                <div class="footer-section-2 col-md-8 col-xs-8 col-sm-8 col-lg-8">
+                    <a href="/">Data</a>
+                    <a href="/">About</a>
+                    <a href="/">Home</a>
+                    <a href="/">Github</a>
+                    <a href="/">Contact</a>
+                    <a href="http://ir.whu.edu.cn">Irlab</a>
+                </div>
+                <div class="footer-section-3 col-md-3 col-xs-3 col-sm-3 col-lg-3">
+                    <p class="laboratory">©copyright 2017&nbsp;&nbsp;&nbsp;INFORMATION RETRIEVAL AND KNOWLEDGE MINING LABORATORY</p>
+                </div>
+            <!--</footer>-->
+        </div>
+    </footer>
+</body>
+</html>
